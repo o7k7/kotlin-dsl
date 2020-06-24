@@ -1,11 +1,4 @@
-object Apps {
-    const val compileSdk = 29
-    const val minSdk = 21
-    const val targetSdk = 29
-    const val versionCode = 1
-    const val versionName = "0.0.1"
-}
-
+// <editor-fold defaultstate="collapsed" desc="Library Versions">
 object Versions {
     const val gradle = "4.0.0"
     const val kotlin = "1.3.72"
@@ -56,18 +49,20 @@ object Versions {
     /* test */
     const val junit = "4.12"
 }
+// </editor-fold>
 
-object Libs {
-    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
-    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
-    const val core_ktx = "androidx.core:core-ktx:1.1.0"
-    const val constraint_layout = "androidx.constraintlayout:constraintlayout:1.1.3"
+// <editor-fold defaultstate="collapsed" desc="Core Versions">
+object CoreVersion {
+    const val KOTLIN = "1.3.72"
+    const val COROUTINES_ANDROID = "1.3.2"
+    const val KTLINT = "0.34.2"
+    const val NAVIGATION = "2.1.0-rc01"
+    const val GOOGLE_SERVICES = "4.2.0"
+    const val BINTRY = "0.9.1"
 }
+// </editor-fold>
 
-object TestLibs {
-    const val junit = "junit:junit:${Versions.junit}"
-}
-
+// <editor-fold defaultstate="collapsed" desc="Libraries that can be implemented">
 object LibraryDependency {
     const val DEVTOOLS_PLUGIN =
         "com.loodos.devtools.plugin:devtools_plugin:${Versions.DEVTOOLS_PLUGIN}"
@@ -139,14 +134,15 @@ object LibraryDependency {
     const val PICASSO = "com.squareup.picasso:picasso:${Versions.PICASSO}"
     const val OBJECTBOX = "io.objectbox:objectbox-kotlin:${Versions.OBJECTBOX}"
     const val OBJECTBOX_DEBUG = "io.objectbox:objectbox-android-objectbrowser:${Versions.OBJECTBOX}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val core_ktx = "androidx.core:core-ktx:1.1.0"
+    const val constraint_layout = "androidx.constraintlayout:constraintlayout:1.1.3"
+}
+// </editor-fold>
+
+object TestLibs {
+    const val junit = "junit:junit:${Versions.junit}"
 }
 
-object CoreVersion {
-    const val KOTLIN = "1.3.50"
-    const val COROUTINES_ANDROID = "1.3.2"
-    const val KTLINT = "0.34.2"
-    const val NAVIGATION = "2.1.0-rc01"
-    const val GOOGLE_SERVICES = "4.2.0"
-    const val BINTRY = "0.9.1"
-}
 

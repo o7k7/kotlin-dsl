@@ -1,4 +1,3 @@
-include(":uptime_module")
 rootProject.name = "Uptime"
 rootDir.walk()
     .maxDepth(1)
@@ -8,5 +7,6 @@ rootDir.walk()
                 && file("${it.absolutePath}/build.gradle.kts").exists()
     }
     .forEach {
+        println(it.name)
         include(":${it.name}")
     }

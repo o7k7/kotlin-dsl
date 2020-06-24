@@ -31,7 +31,7 @@ android {
         if (rootProject.file("signing-debug.properties").exists()) {
             val signingDebug = Properties()
             signingDebug.load(FileInputStream(rootProject.file("signing-debug.properties")))
-            getByName("debug") {
+            getByName("debug") { // ToDo:: Fill related files
                 //storeFile = rootProject.file(signingDebug.getProperty("storeFile"))
                 //storePassword = signingDebug.getProperty("storePassword")
                 //keyAlias = signingDebug.getProperty("keyAlias")
@@ -41,7 +41,7 @@ android {
         if (rootProject.file("signing-release.properties").exists()) {
             val signingRelease = Properties()
             signingRelease.load(FileInputStream(rootProject.file("signing-release.properties")))
-            create("release") {
+            create("release") {// ToDo:: Fill related files
                 //storeFile =  rootProject.file(signingRelease.getProperty("storeFile"))
                 //storePassword = signingRelease.getProperty("storePassword")
                 //keyAlias = signingRelease.getProperty("keyAlias")
@@ -52,7 +52,7 @@ android {
 
     buildTypes {
         getByName("debug") {
-            buildConfigField("String", "API_BASE", "\"http://www.mocky.io/v2/\"")
+            buildConfigField("String", "API_BASE", "\"https://api.jikan.moe/v3\"")
             isMinifyEnabled = false
             isDebuggable = true
             applicationIdSuffix = ".debug"
@@ -60,7 +60,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
-            buildConfigField("String", "API_BASE", "\"http://www.mocky.io/v2/\"")
+            buildConfigField("String", "API_BASE", "\"https://api.jikan.moe/v3\"")
             isMinifyEnabled = true
             isDebuggable = false
             isShrinkResources = true
@@ -87,9 +87,10 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Libs.kotlin)
-    implementation(Libs.appcompat)
-    implementation(Libs.constraint_layout)
-    implementation(Libs.core_ktx)
+    implementation(project(":uptime_module")) // Projects that you need to compile
+    implementation(LibraryDependency.kotlin)
+    implementation(LibraryDependency.appcompat)
+    implementation(LibraryDependency.constraint_layout)
+    implementation(LibraryDependency.core_ktx)
     testImplementation(TestLibs.junit)
 }
